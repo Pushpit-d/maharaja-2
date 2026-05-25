@@ -19,7 +19,7 @@ function App() {
             <a href="https://www.omaharaja.com/our-menu" className="primary-button">
               View Menu
             </a>
-            <a href="https://g.page/r/CUmSG-ukusoKEBE/review" className="primary-button">
+            <a href="https://g.page/r/CebBCg1TOJIZEAI/review" className="primary-button">
               Give a Review
             </a>
           </div>
