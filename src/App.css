@@ -1,0 +1,227 @@
+/* Reset Vite scaffold defaults */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: initial;
+}
+
+/* ─── Keyframes ──────────────────────────────────────── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Overlay darkens first, then card rises in */
+@keyframes overlayReveal {
+  from { background: rgba(0, 0, 0, 0); }
+  to   { background: rgba(0, 0, 0, 0.72); }
+}
+
+@keyframes cardEntrance {
+  from { opacity: 0; transform: scale(0.95) translateY(14px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+/* ─── Layout ─────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100vw;
+  background-image: url('/bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  animation: overlayReveal 0.7s ease forwards;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+/* ─── Glass card ─────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 22px;
+  padding: 40px 22px 36px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: cardEntrance 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+/* ─── Logo ───────────────────────────────────────────── */
+.logo-wrap {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ─── Title & subtitle ───────────────────────────────── */
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin: 0 0 7px;
+  color: #fff;
+}
+
+.subtitle {
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 32px;
+}
+
+/* ─── Buttons ────────────────────────────────────────── */
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+}
+
+.primary-button {
+  width: 72%;
+  min-width: 200px;
+  padding: 16px 24px;
+  background: #e00200;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  display: block;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 14px rgba(224, 2, 0, 0.28);
+}
+
+/* Classy shine sweep on hover */
+.primary-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.55s ease;
+}
+
+.primary-button:hover {
+  background: #c80000;
+  box-shadow: 0 4px 22px rgba(224, 2, 0, 0.48);
+  color: #fff;
+}
+
+.primary-button:hover::after {
+  transform: translateX(120%);
+}
+
+.primary-button:active {
+  background: #a60000;
+  box-shadow: 0 1px 6px rgba(224, 2, 0, 0.2);
+  color: #fff;
+}
+
+/* Staggered entrance */
+.buttons .primary-button:nth-child(1) {
+  animation: slideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+.buttons .primary-button:nth-child(2) {
+  animation: slideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
+}
+
+/* ─── Follow text ────────────────────────────────────── */
+.follow-text {
+  font-size: 11px;
+  margin: 28px 0 14px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  animation: fadeIn 0.5s ease 0.4s both;
+}
+
+/* ─── Social icons ───────────────────────────────────── */
+.social-row {
+  display: flex;
+  gap: 16px;
+  animation: slideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.44s both;
+}
+
+.social-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Clean white fill — classy monochrome */
+.social-button:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.92);
+  color: #111;
+}
+
+.social-button:active {
+  background: rgba(255, 255, 255, 0.7);
+}
